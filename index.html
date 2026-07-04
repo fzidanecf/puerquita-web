@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Puercaypuerco❤️</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="hearts-bg"></div>
+
+    <div class="container">
+        <header>
+            <h1 class="title">Feliz Cumpleaños</h1>
+            <h2 class="name">Mía ❤️</h2>
+            <p class="subtitle">La persona más especial de mi vida</p>
+        </header>
+
+<section class="message">
+            <div class="message-card" onclick="revealMessage()">
+                <p id="hidden-msg">Haz clic para descubrir un mensaje ✨</p>
+                <p id="revealed-msg" class="hidden">Feliz cumpleaños al amor de mi vida , te amo con mi corazon ,he hecho esta pagina para ti con todo mi cariño  espero que te guste eres una persona increible , talentosa , llena de amor para dar , nunca te rindas yo se que tienes mucho talento y que seras la mejor en lo que sea que te propongas , te ama tu puerco  ❤️</p>
+            </div>
+        </section>
+
+        <section class="photos">
+            <h3>Nuestro amor</h3>
+            <div class="photo-grid">
+                <div class="photo-item" onclick="showPhoto(1)">
+                    <img src="imagenes/imagen1.jpeg" alt="Foto 1" loading="lazy">
+                </div>
+                <div class="photo-item" onclick="showPhoto(2)">
+                    <img src="imagenes/imagen2.jpeg" alt="Foto 2" loading="lazy">
+                </div>
+                <div class="photo-item" onclick="showPhoto(3)">
+                    <img src="imagenes/WhatsApp Image 2026-07-04 at 10.38.33.jpeg" alt="Foto 3" loading="lazy">
+                </div>
+                <div class="photo-item" onclick="showPhoto(4)">
+                    <img src="imagenes/WhatsApp Image 2026-07-04 at 10.40.16.jpeg" alt="Foto 4" loading="lazy">
+                </div>
+            </div>
+        </section>
+
+        <section class="yoko-section">
+            <h3>Yoko 🐾</h3>
+            <div class="yoko-card">
+                <div class="yoko-img">
+                    <img src="imagenes/yoko.jpg" alt="Yoko" loading="lazy">
+                </div>
+                <div class="spotify-player">
+                    <div class="sp-info">
+                        <div class="sp-cover">
+                            <img src="imagenes/yoko.jpg" alt="Yoko">
+                        </div>
+                        <div class="sp-meta">
+                            <span class="sp-song">YOKO</span>
+                            <span class="sp-artist">Álvaro Díaz</span>
+                        </div>
+                    </div>
+                    <div class="sp-controls">
+                        <button class="sp-btn" id="sp-play" onclick="togglePlay()">▶</button>
+                        <span id="sp-current">0:00</span>
+                        <div class="sp-bar-wrapper">
+                            <div class="sp-bar" onclick="seekAudio(event)">
+                                <div class="sp-progress" id="sp-progress"></div>
+                            </div>
+                        </div>
+                        <span id="sp-duration">0:00</span>
+                        <button class="sp-btn" id="sp-mute" onclick="toggleMute()">🔊</button>
+                    </div>
+                    <audio id="audio-player" src="audio/Alvaro Diaz - Yoko Official Video.mp3" loop preload="metadata"></audio>
+                </div>
+            </div>
+        </section>
+
+        <section class="reasons">
+            <h3>Razones por las que te amo</h3>
+            <button class="btn-reason" onclick="showReason()">Dame una razón ❤️</button>
+            <p id="reason-text" class="reason-text"></p>
+        </section>
+
+        <footer>
+            <p>Hecho con todo mi amor para ti ❤️</p>
+            <p class="footer-date"></p>
+        </footer>
+    </div>
+
+    <div id="photo-modal" class="modal hidden">
+        <div class="modal-content modal-photo">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div class="modal-body">
+                <img id="modal-img" src="" alt="Foto">
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

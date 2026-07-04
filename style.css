@@ -1,0 +1,530 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Quicksand:wght@300;400;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Quicksand', sans-serif;
+    background: linear-gradient(135deg, #fce4ec 0%, #fff0f5 50%, #f8bbd0 100%);
+    min-height: 100vh;
+    color: #5d2e46;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Hearts Background */
+#hearts-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.heart-float {
+    position: absolute;
+    font-size: 20px;
+    opacity: 0.6;
+    animation: floatUp linear infinite;
+    user-select: none;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0.6;
+    }
+    100% {
+        transform: translateY(-10vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Header */
+header {
+    text-align: center;
+    padding: 40px 0 30px;
+}
+
+.title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.5rem;
+    color: #e91e63;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.name {
+    font-family: 'Dancing Script', cursive;
+    font-size: 3.5rem;
+    color: #c2185b;
+    margin: 10px 0;
+    text-shadow: 2px 2px 4px rgba(233, 30, 99, 0.2);
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    color: #8e4a63;
+    font-weight: 300;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+/* Message Card */
+.message {
+    margin: 30px 0;
+}
+
+.message-card {
+    background: rgba(255, 255, 255, 0.8);
+    border: 2px solid #f8bbd0;
+    border-radius: 20px;
+    padding: 30px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(233, 30, 99, 0.08);
+}
+
+.message-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(233, 30, 99, 0.15);
+    border-color: #f06292;
+}
+
+#hidden-msg {
+    font-size: 1.1rem;
+    color: #8e4a63;
+}
+
+#revealed-msg {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #5d2e46;
+    font-weight: 500;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Photos Section */
+.photos {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.photos h3 {
+    font-size: 1.5rem;
+    color: #7a3b52;
+    margin-bottom: 20px;
+    font-family: 'Dancing Script', cursive;
+}
+
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+}
+
+.photo-item {
+    border-radius: 15px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    aspect-ratio: 1;
+    box-shadow: 0 4px 15px rgba(233, 30, 99, 0.1);
+}
+
+.photo-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.photo-item:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 25px rgba(233, 30, 99, 0.2);
+}
+
+.photo-item:hover img {
+    transform: scale(1.08);
+}
+
+/* Yoko Section */
+.yoko-section {
+    text-align: center;
+    margin: 30px 0;
+    padding: 25px;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(233, 30, 99, 0.1);
+}
+
+.yoko-section h3 {
+    font-size: 1.5rem;
+    color: #7a3b52;
+    margin-bottom: 20px;
+    font-family: 'Dancing Script', cursive;
+}
+
+.yoko-card {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.yoko-img {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid #f8bbd0;
+    box-shadow: 0 4px 20px rgba(233, 30, 99, 0.15);
+    flex-shrink: 0;
+}
+
+.yoko-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Spotify-style Player */
+.spotify-player {
+    background: #1e1e1e;
+    border-radius: 14px;
+    padding: 14px;
+    min-width: 280px;
+    flex: 1;
+    max-width: 380px;
+}
+
+.sp-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.sp-cover {
+    width: 48px;
+    height: 48px;
+    border-radius: 6px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.sp-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.sp-meta {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.sp-song {
+    color: white;
+    font-weight: 600;
+    font-size: 0.95rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.sp-artist {
+    color: #a0a0a0;
+    font-size: 0.8rem;
+    margin-top: 2px;
+}
+
+.sp-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.sp-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 4px 6px;
+    border-radius: 50%;
+    transition: background 0.2s;
+    line-height: 1;
+    min-width: 32px;
+    text-align: center;
+}
+
+.sp-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+#sp-play {
+    font-size: 1.4rem;
+    color: #1db954;
+    min-width: 36px;
+}
+
+#sp-play:hover {
+    color: #1ed760;
+    background: rgba(29, 185, 84, 0.15);
+}
+
+.sp-bar-wrapper {
+    flex: 1;
+    min-width: 60px;
+}
+
+.sp-bar {
+    height: 4px;
+    background: #535353;
+    border-radius: 2px;
+    cursor: pointer;
+    position: relative;
+}
+
+.sp-bar:hover {
+    height: 6px;
+}
+
+.sp-progress {
+    height: 100%;
+    width: 0%;
+    background: #1db954;
+    border-radius: 2px;
+    transition: width 0.1s linear;
+}
+
+.sp-bar:hover .sp-progress {
+    background: #1ed760;
+}
+
+#sp-current,
+#sp-duration {
+    color: #a0a0a0;
+    font-size: 0.7rem;
+    font-variant-numeric: tabular-nums;
+    min-width: 32px;
+    text-align: center;
+}
+
+#sp-mute {
+    font-size: 1rem;
+}
+
+#audio-player {
+    display: none;
+}
+
+/* Reasons Section */
+.reasons {
+    text-align: center;
+    margin: 30px 0;
+    padding: 25px;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(233, 30, 99, 0.1);
+}
+
+.reasons h3 {
+    font-size: 1.5rem;
+    color: #7a3b52;
+    margin-bottom: 20px;
+    font-family: 'Dancing Script', cursive;
+}
+
+.btn-reason {
+    background: linear-gradient(135deg, #f06292, #e91e63);
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    font-size: 1rem;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(233, 30, 99, 0.3);
+}
+
+.btn-reason:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(233, 30, 99, 0.4);
+}
+
+.btn-reason:active {
+    transform: translateY(0);
+}
+
+.reason-text {
+    margin-top: 20px;
+    font-size: 1.1rem;
+    color: #5d2e46;
+    font-weight: 500;
+    min-height: 30px;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 30px 0;
+    color: #8e4a63;
+    font-size: 0.9rem;
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+.footer-date {
+    font-size: 0.8rem;
+    opacity: 0.7;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    animation: fadeIn 0.3s ease;
+}
+
+.modal-content {
+    background: white;
+    margin: 15% auto;
+    padding: 30px;
+    border-radius: 20px;
+    max-width: 400px;
+    position: relative;
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+    from { transform: translateY(-30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: #8e4a63;
+    transition: color 0.2s;
+}
+
+.close:hover {
+    color: #e91e63;
+}
+
+.modal-body {
+    text-align: center;
+    padding: 0;
+}
+
+.modal-photo {
+    max-width: 600px;
+    padding: 10px;
+    background: transparent;
+    box-shadow: none;
+}
+
+.modal-photo .close {
+    color: white;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+}
+
+.modal-photo .close:hover {
+    color: #f8bbd0;
+}
+
+#modal-img {
+    max-width: 100%;
+    max-height: 70vh;
+    border-radius: 15px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    display: block;
+}
+
+.show {
+    display: block;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .title {
+        font-size: 1.8rem;
+    }
+    .name {
+        font-size: 2.5rem;
+    }
+    .photo-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .yoko-img {
+        width: 130px;
+        height: 130px;
+    }
+
+    .spotify-player {
+        min-width: 0;
+        width: 100%;
+        padding: 12px;
+    }
+
+    .sp-controls {
+        gap: 4px;
+    }
+
+    .sp-btn {
+        min-width: 28px;
+        font-size: 1rem;
+    }
+
+    #sp-play {
+        font-size: 1.2rem;
+        min-width: 32px;
+    }
+}
